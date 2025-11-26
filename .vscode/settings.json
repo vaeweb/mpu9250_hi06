@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "mpu9250.h": "c",
+        "sdk_common.h": "c",
+        "nrf_peripherals.h": "c",
+        "nrf_drv_twi.h": "c",
+        "nrf_pwr_mgmt.h": "c",
+        "my_ble_uarts.h": "c"
+    }
+}
