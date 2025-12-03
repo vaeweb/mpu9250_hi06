@@ -742,6 +742,18 @@ int main(void)
 	while (!p_client->is_notification_enabled)
 	{
 		blcm_link_ctx_get(m_uarts.p_link_ctx_storage, m_conn_handle, (void *) &p_client);
+        /*
+        蓝牙协议含义： CCCD 订阅 (Subscription)。
+        这是什么意思？
+        程序运行到这里，会停住。
+        即便手机连接上了蓝牙，程序依然停在这里。
+        只有当你在手机 App (如 nRF Connect) 上，
+        找到那个特征值，点击 "Enable Notify" (开启通知/订阅) 按钮。
+        手机会发一个写命令给板子，把 CCCD 变成 1。
+        p_client->is_notification_enabled 变成真，循环才会打破。
+        为什么这么写？ 
+        它是为了省电。只有当手机明确表示“我想听数据”时，传感器才开始工作       
+          */
     }
 	
 	//启动定时器
